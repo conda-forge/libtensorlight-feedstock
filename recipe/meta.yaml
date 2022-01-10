@@ -29,6 +29,7 @@ requirements:
 
   run:
     - mkl
+    - libblas * *mkl
 
 test:
   commands:
