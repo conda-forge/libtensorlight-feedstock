@@ -5,3 +5,6 @@ else
 fi
 
 nm $PREFIX/lib/libtensorlight$SHLIB_EXT | grep product_table_container | grep get_instance
+
+cd build
+ctest
