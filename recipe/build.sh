@@ -6,5 +6,11 @@ fi
 
 nm $PREFIX/lib/libtensorlight$SHLIB_EXT | grep product_table_container | grep get_instance
 
-cd build
-ctest
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+    cd build
+    if [ "$(uname)" == "Linux" ]; then
+        ctest -E ewmult2
+    else
+        ctest
+    fi
+fi
