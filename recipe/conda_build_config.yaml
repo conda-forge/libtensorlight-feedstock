@@ -2,3 +2,8 @@ c_compiler_version:            # [osx]
   - 11                         # [osx]
 cxx_compiler_version:          # [osx]
   - 11                         # [osx]
+# temporary to prevent rerender from setting mkl=2023 & mkl_devel=2022
+mkl:
+  - 2023
+mkl_devel:
+  - 2023
