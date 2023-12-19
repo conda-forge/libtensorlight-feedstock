@@ -20,7 +20,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - mkl-devel {{ mkl }}                    # [x86_64]
+    - mkl-devel                              # [x86_64]
     - blas-devel                             # [not x86_64]
     - libblas * *netlib                      # [not x86_64]
     - llvm-openmp            # [osx]
@@ -29,7 +29,7 @@ requirements:
     - ninja
 
   host:
-    - mkl-devel {{ mkl }}                    # [x86_64]
+    - mkl-devel                              # [x86_64]
     - blas-devel                             # [not x86_64]
     - libblas * *netlib                      # [not x86_64]
 
