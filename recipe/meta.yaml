@@ -11,13 +11,14 @@ source:
   sha256: 1ec596bbd160b4df413bccb42e88d876e098aa62899f6b1bb50003d5552bf9cb
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('libtensorlight', max_pin='x.x') }}
 
 requirements:
   build:
+    - {{ stdlib("c") }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - mkl-devel                              # [x86_64]
