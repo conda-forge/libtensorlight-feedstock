@@ -1,4 +1,4 @@
-if [[ "${target_platform}" == "osx-arm64" ]]; then
+if [[ "${target_platform}" == "osx-arm64" || "${target_platform}" == "linux-aarch64" || "${target_platform}" == "linux-ppc64le" ]]; then
     ./build_libtensor.py -v -d build --install ${PREFIX} --type Release --features netlib libxm
 else
     ./build_libtensor.py -v -d build --install ${PREFIX} --type Release --features mkl libxm
