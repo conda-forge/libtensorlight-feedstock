@@ -1,3 +1,12 @@
+# copied from clangdev-feedstock
+# disable -fno-plt due to some GCC bug causing linker errors, see
+# https://github.com/llvm/llvm-project/issues/51205
+if [[ "$target_platform" == "linux-ppc64le" ]]; then
+  CFLAGS="$(echo $CFLAGS | sed 's/-fno-plt //g')"
+  CXXFLAGS="$(echo $CXXFLAGS | sed 's/-fno-plt //g')"
+  LDFLAGS="$(echo $LDFLAGS | sed 's/-fno-plt //g')"
+fi
+
 if [[ "${target_platform}" == "osx-arm64" || "${target_platform}" == "linux-aarch64" || "${target_platform}" == "linux-ppc64le" ]]; then
     ./build_libtensor.py -v -d build --install ${PREFIX} --type Release --features netlib libxm
 else
