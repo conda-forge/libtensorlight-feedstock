@@ -18,7 +18,7 @@ build:
 
 requirements:
   build:
-    - {{ stdlib("c") }}
+    - {{ stdlib("c") }}                      # [not osx]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - mkl-devel                              # [x86_64]
