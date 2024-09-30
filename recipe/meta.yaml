@@ -8,6 +8,7 @@ source:
   url: https://github.com/adc-connect/libtensor/archive/v{{ version }}.tar.gz
   patches:
     - 0001-add-netlib-blas-remove-tabs.patch
+    - 0002-symbols-visible-for-mac.patch
   sha256: 1ec596bbd160b4df413bccb42e88d876e098aa62899f6b1bb50003d5552bf9cb
 
 build:
