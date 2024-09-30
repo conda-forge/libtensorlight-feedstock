@@ -7,12 +7,6 @@ if [[ "$target_platform" == "linux-ppc64le" ]]; then
   LDFLAGS="$(echo $LDFLAGS | sed 's/-fno-plt //g')"
 fi
 
-if [[ "${target_platform}" == "osx-arm64" || "${target_platform}" == "osx-64" ]]; then
-  LDFLAGS="$(echo $LDFLAGS | sed 's/-Wl,-dead_strip_dylibs //g')"
-  LDFLAGS="$LDFLAGS -Wl,-all_load"
-  LDFLAGS_LD="$(echo $LDFLAGS_LD | sed 's/-dead_strip_dylibs //g')"
-fi
-
 if [[ "${target_platform}" == "osx-arm64" || "${target_platform}" == "linux-aarch64" || "${target_platform}" == "linux-ppc64le" ]]; then
     ./build_libtensor.py -v -d build --install ${PREFIX} --type Release --features netlib libxm
 else
