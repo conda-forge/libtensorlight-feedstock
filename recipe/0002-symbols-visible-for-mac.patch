@@ -1,0 +1,25 @@
+From 2ef77676f3df01c449e8a0a35dfa300f65700fc4 Mon Sep 17 00:00:00 2001
+From: Lori Burns <lori.burns@gmail.com>
+Date: Mon, 30 Sep 2024 15:42:51 -0400
+Subject: [PATCH] all visible
+
+---
+ build_libtensor.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/build_libtensor.py b/build_libtensor.py
+index c9b3fdbf..301dbd2e 100755
+--- a/build_libtensor.py
++++ b/build_libtensor.py
+@@ -35,6 +35,8 @@ def configure(build_dir, source_dir, install_dir, build_type=None, features=[],
+             if flag in os.environ:
+                 os.environ[flag] = \
+                     os.environ[flag].replace("-dead_strip_dylibs", "")
++        # solves the "product_table_container" problem of https://github.com/conda-forge/libtensorlight-feedstock/pull/4
++        args += ["-DCMAKE_CXX_FLAGS='-fvisibility=default'"]
+ 
+     if use_ninja:
+         args += ["-G", "Ninja"]
+-- 
+2.39.2 (Apple Git-143)
+
