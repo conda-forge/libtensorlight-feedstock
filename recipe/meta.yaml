@@ -22,11 +22,11 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - libcxx {{ c_compiler_version }}        # [osx]
     - mkl-devel                              # [x86_64]
     - blas-devel                             # [not x86_64]
     - libblas * *netlib                      # [not x86_64]
-    - llvm-openmp            # [osx]
+    - libcxx {{ c_compiler_version }}        # [osx]
+    - llvm-openmp {{ c_compiler_version }}   # [osx]
     - libgomp                # [linux]
     - cmake >=3.2
     - ninja
