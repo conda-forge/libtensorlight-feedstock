@@ -20,7 +20,7 @@ build:
 
 requirements:
   build:
-    - {{ stdlib("c") }}                      # [not osx]
+    - {{ stdlib("c") }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - mkl-devel                              # [x86_64]
@@ -34,7 +34,6 @@ requirements:
 
   host:
     - libcxx {{ c_compiler_version }}        # [osx]
-    - llvm-openmp 16.*                       # [osx]
     - mkl-devel                              # [x86_64]
     - blas-devel                             # [not x86_64]
     - libblas * *netlib                      # [not x86_64]
