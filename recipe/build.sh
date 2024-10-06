@@ -7,6 +7,8 @@ if [[ "$target_platform" == "linux-ppc64le" ]]; then
   LDFLAGS="$(echo $LDFLAGS | sed 's/-fno-plt //g')"
 fi
 
+export EXTRA_CMAKE_FLAGS="-DOpenMP_C_FLAGS=-fopenmp -DOpenMP_CXX_FLAGS=-fopenmp -DOpenMP_C_LIB_NAMES=libomp -DOpenMP_CXX_LIB_NAMES=libomp -DOpenMP_libomp_LIBRARY=${PREFIX}/lib/libomp.dylib"
+
 if [[ "${target_platform}" == "osx-arm64" || "${target_platform}" == "linux-aarch64" || "${target_platform}" == "linux-ppc64le" ]]; then
     ./build_libtensor.py -v -d build --install ${PREFIX} --type Release --features netlib libxm
 else
