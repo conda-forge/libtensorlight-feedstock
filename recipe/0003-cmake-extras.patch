@@ -1,0 +1,27 @@
+From a3f2a25054bdf7ad95b6d1f1753a41de685d6769 Mon Sep 17 00:00:00 2001
+From: Lori Burns <lori.burns@gmail.com>
+Date: Sat, 5 Oct 2024 22:00:25 -0400
+Subject: [PATCH] extra cmake
+
+---
+ build_libtensor.py | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/build_libtensor.py b/build_libtensor.py
+index 301dbd2e..ab9743b6 100755
+--- a/build_libtensor.py
++++ b/build_libtensor.py
+@@ -63,6 +63,10 @@ def configure(build_dir, source_dir, install_dir, build_type=None, features=[],
+     if "netlib" in features:
+         args += ["-DBLA_VENDOR=Generic"]
+ 
++    extras = os.getenv("EXTRA_CMAKE_FLAGS", "").split()
++    args.extend(extras)
++    print(args)
++
+     subprocess.check_call(args + [source_dir], cwd=build_dir)
+ 
+ 
+-- 
+2.39.2 (Apple Git-143)
+
