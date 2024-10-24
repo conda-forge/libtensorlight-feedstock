@@ -19,7 +19,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 mkl_devel:
-- '2023'
+- '2024'
 target_platform:
 - linux-64
 zip_keys:

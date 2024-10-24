@@ -13,7 +13,7 @@ source:
   sha256: 1ec596bbd160b4df413bccb42e88d876e098aa62899f6b1bb50003d5552bf9cb
 
 build:
-  number: 8
+  number: 9
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage('libtensorlight', max_pin='x.x') }}
